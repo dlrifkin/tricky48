@@ -19,7 +19,7 @@ Game.prototype.newBoard = function(){
 }
 
 Game.prototype.newNum = function(){
-	var spot = Math.floor((Math.random()))
+	var spot = Math.floor(16 * Math.random())
 	var arrBoard = this.board.split("")
 
 	if (arrBoard[spot] === "0") {
