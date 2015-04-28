@@ -30,5 +30,8 @@ Game.prototype.generateTile = function(){
 }
 
 Game.prototype.toString = function(){
-	console.log(this.board);
+	var splitBoard = this.board.match(/.{4}/g);
+	for (var i = 0; i < splitBoard.length; i++){
+		console.log(splitBoard[i]);
+	}
 }
