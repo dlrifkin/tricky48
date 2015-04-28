@@ -19,6 +19,12 @@ Game.prototype.newNum = function(){
 		this.board=  arrBoard.join("");
 		console.log(this.board);
 	}
+	else {
+		this.newNum();
+		console.log("this is recursion");
+	}
+}
+
 Game.prototype.generateTile = function(){
 	//internet consensus seems to be that 4-tile is generated 10% of the time
 	return Math.random() < 0.9 ? "2" : "4";
