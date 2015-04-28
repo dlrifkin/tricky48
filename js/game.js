@@ -3,14 +3,6 @@ var Game = function(b) {
 	this.complete = false;
 }
 
-Game.prototype.toString = function(){
-	console.log(this.board);
-}
-
-Game.prototype.newNum = function(){
-	this.board = this.board.concat("2");
-}
-
 Game.prototype.newBoard = function(){
 	this.board = "0000000000000000";
 	this.newNum();
@@ -23,12 +15,15 @@ Game.prototype.newNum = function(){
 	var arrBoard = this.board.split("")
 
 	if (arrBoard[spot] === "0") {
-		arrBoard[spot] = "2"
-		this.board=  arrBoard.join("")
-		console.log(this.board)
+		arrBoard[spot] = this.generateTile();
+		this.board=  arrBoard.join("");
+		console.log(this.board);
 	}
+Game.prototype.generateTile = function(){
+	//internet consensus seems to be that 4-tile is generated 10% of the time
+	return Math.random() < 0.9 ? "2" : "4";
 }
 
-Game.prototype.loop = function(){
-	console.log(game.toString());
+Game.prototype.toString = function(){
+	console.log(this.board);
 }
