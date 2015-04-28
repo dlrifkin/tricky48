@@ -19,7 +19,7 @@ Game.prototype.move = function(){
 }
 
 Game.prototype.newNum = function(){
-	if (this.board.match(/0/g) != null) {
+	if (this.checkLost()) {
 		var arrBoard = this.board.split("")
 		var spot = Math.floor(16 * Math.random())
 		
@@ -35,6 +35,10 @@ Game.prototype.newNum = function(){
 	else {
 		console.log("lose");
 	}
+}
+
+Game.prototype.checkLost = function(){
+	return this.board.match(/0/g) != null
 }
 
 Game.prototype.generateTile = function(){
