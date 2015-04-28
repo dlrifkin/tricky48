@@ -14,13 +14,26 @@ Game.prototype.newNum = function(){
 	var spot = Math.floor(16 * Math.random())
 	var arrBoard = this.board.split("")
 
-	if (arrBoard[spot] === "0") {
+Game.prototype.move = function(){
+
+}
+
+Game.prototype.newNum = function(){
+	if (this.board.match(/0/g) != null) {
+		var arrBoard = this.board.split("")
+		var spot = Math.floor(16 * Math.random())
+		
+		if (arrBoard[spot] === "0"){ 
 		arrBoard[spot] = this.generateTile();
 		this.board=  arrBoard.join("");
 		console.log(this.board);
+		}
+		else {
+			this.newNum();
+		}
 	}
 	else {
-		this.newNum();
+		console.log("lose");
 	}
 }
 
