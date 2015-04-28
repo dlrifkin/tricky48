@@ -1,6 +1,7 @@
 var Game = function(b) {
 	this.board = b || this.newBoard();
 	this.complete = false;
+
 }
 
 Game.prototype.newBoard = function(){
@@ -42,6 +43,7 @@ Game.prototype.checkLost = function(){
 }
 
 Game.prototype.generateTile = function(){
+Game.prototype.generateValue = function(){
 	//internet consensus seems to be that 4-tile is generated 10% of the time
 	return Math.random() < 0.9 ? "2" : "4";
 }
