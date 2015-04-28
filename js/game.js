@@ -21,17 +21,7 @@ Game.prototype.move = function(){
 
 Game.prototype.newNum = function(){
 	if (this.checkLost()) {
-		var arrBoard = this.board.split("")
-		var spot = Math.floor(16 * Math.random())
-		
-		if (arrBoard[spot] === "0"){ 
-		arrBoard[spot] = this.generateTile();
-		this.board=  arrBoard.join("");
-		console.log(this.board);
-		}
-		else {
-			this.newNum();
-		}
+		this.generateTile();
 	}
 	else {
 		console.log("lose");
@@ -43,6 +33,18 @@ Game.prototype.checkLost = function(){
 }
 
 Game.prototype.generateTile = function(){
+	var arrBoard = this.board.split("")
+	var spot = Math.floor(16 * Math.random())
+	
+	if (arrBoard[spot] === "0"){ 
+	arrBoard[spot] = this.generateValue();
+	this.board=  arrBoard.join("");
+	}
+	else {
+		this.generateTile();
+	}
+}
+
 Game.prototype.generateValue = function(){
 	//internet consensus seems to be that 4-tile is generated 10% of the time
 	return Math.random() < 0.9 ? "2" : "4";
