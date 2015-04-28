@@ -21,7 +21,6 @@ Game.prototype.newNum = function(){
 	}
 	else {
 		this.newNum();
-		console.log("this is recursion");
 	}
 }
 
